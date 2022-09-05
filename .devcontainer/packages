@@ -1,0 +1,16 @@
+apt-utils
+build-essential
+ca-certificates
+clang
+clang-format
+clang-tidy
+cmake
+cppcheck
+curl
+g++
+gdb
+git
+lldb
+llvm
+make
+valgrind
