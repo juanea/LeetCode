@@ -48,7 +48,7 @@ public:
               roman_string[i] == 'X' && roman_string[i + 1] == 'L' ||
               roman_string[i] == 'X' && roman_string[i + 1] == 'C' ||
               roman_string[i] == 'C' && roman_string[i + 1] == 'D' ||
-              roman_string[i] == 'C' && roman_string[i - 1] == 'M')
+              roman_string[i] == 'C' && roman_string[i + 1] == 'M')
           {
             decimal_number = decimal_number - look_up_table[j][0];
             break;
