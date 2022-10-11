@@ -2,12 +2,13 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-COPY packages /tmp/packages
+COPY apt-requirements.txt /tmp/apt-requirements.txt
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apt-get update && \
-  apt-get install -y gettext-base --no-install-recommends && \
-  apt-get install -y --no-install-recommends \
-  $(cat /tmp/packages | cut -d# -f1 | envsubst) \
-  && rm -rf /var/lib/apt/lists/* /tmp/packages
+  sed 's/#.*//' /tmp/apt-requirements.txt | xargs apt-get -y --quiet  --no-install-recommends install \
+  && apt-get -y autoremove \
+  && apt-get clean autoclean \
+  && rm -rf /var/lib/apt/lists/{apt,dpkg,cache,log} /tmp/* /var/tmp/*
 
 ARG USERNAME=vscode
 ARG USER_UID=1000
@@ -26,9 +27,9 @@ RUN groupadd --gid $USER_GID $USERNAME \
 
 USER $USERNAME
 
-# [Optional] Install CMake version different from what base image has already installed. 
+# [Optional] Install CMake version different from what base image has already installed.
 # CMake reinstall choices: none, 3.21.5, 3.22.2, or versions from https://cmake.org/download/
-ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="3.24.1"
+ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="3.24.2"
 
 COPY reinstall-cmake.sh /tmp/reinstall-cmake.sh
 RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \

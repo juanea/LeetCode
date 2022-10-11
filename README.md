@@ -9,6 +9,7 @@ This repository is intended to document the LeetCode questions on algorithms and
 - Open the project in the root folder with VSCode.
 - Click on the left down corner symbol "><"
 - Then click on reopen in container (This will take care of building the Docker container)
+- Note for using this withing PowerShell one needs to disable `git config --global core.autocrlf input` [Error while running Docker code in PowerShell](https://forums.docker.com/t/error-while-running-docker-code-in-powershell/34059/8)
 
 ## How to add a new problem?
 
