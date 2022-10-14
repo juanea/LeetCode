@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 COPY apt-requirements.txt /tmp/apt-requirements.txt
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apt-get update && \
-  sed 's/#.*//' /tmp/apt-requirements.txt | xargs apt-get -y --quiet  --no-install-recommends install \
+  sed 's/#.*//' /tmp/apt-requirements.txt | xargs apt-get -y --quiet --no-install-recommends install \
   && apt-get -y autoremove \
   && apt-get clean autoclean \
   && rm -rf /var/lib/apt/lists/{apt,dpkg,cache,log} /tmp/* /var/tmp/*

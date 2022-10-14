@@ -10,6 +10,7 @@ This repository is intended to document the LeetCode questions on algorithms and
 - Click on the left down corner symbol "><"
 - Then click on reopen in container (This will take care of building the Docker container)
 - Note for using this withing PowerShell one needs to disable `git config --global core.autocrlf input` [Error while running Docker code in PowerShell](https://forums.docker.com/t/error-while-running-docker-code-in-powershell/34059/8)
+- In order to use git without dubious ownership inside the container add the following line to the devcontainer.json `"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",` reference, [Avoiding Dubious Ownership in Dev Containers](https://www.kenmuse.com/blog/avoiding-dubious-ownership-in-dev-containers/)
 
 ## How to add a new problem?
 

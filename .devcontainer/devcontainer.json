@@ -10,6 +10,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "ms-vscode-remote.remote-containers",
         "ms-vscode.cpptools-extension-pack",
         "ms-vscode.cpptools-themes",
         "ms-vscode.cpptools",
@@ -22,5 +23,6 @@
       ]
     }
   },
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+  "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
 }
