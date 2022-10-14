@@ -14,4 +14,5 @@ git
 lldb
 llvm
 make
+openssh-client
 valgrind
