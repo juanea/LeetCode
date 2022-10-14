@@ -25,6 +25,7 @@
   },
   "remoteUser": "vscode",
   "mounts": [
+    //"source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=${containerEnv:HOME}/.ssh,type=bind,consistency=cached" // Not working yet https://github.com/microsoft/vscode-remote-release/issues/7121
     "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
   ],
   "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
