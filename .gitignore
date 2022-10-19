@@ -31,9 +31,12 @@
 *.out
 *.app
 
-sandbox/
-
 #Exclude all executables in linux for C/C++
 *
 !*.*
 !*/
+
+#Exclude the sandbox folder
+sandbox
+sandbox/*.cpp
+sandbox/*
